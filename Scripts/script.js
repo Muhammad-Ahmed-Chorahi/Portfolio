@@ -12,6 +12,7 @@ let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
 
 window.onscroll = () => {
+    let found = false;
     sections.forEach(sec => {
         let top = window.scrollY;
         let offset = sec.offsetTop - 100;
@@ -22,19 +23,28 @@ window.onscroll = () => {
             // active navlinks 
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
             });
+            let activeLink = document.querySelector('header nav a[href="#' + id + '"]');
+            if (activeLink) activeLink.classList.add('active');
             // active section for animation on scroll 
             sec.classList.add('show-animate');
-        }
-        // if want to use the animation that repeats on scroll 
-        else {
+            found = true;
+        } else {
             sec.classList.remove('show-animate');
         }
     });
+
+    // If no section is found (e.g., scrolled above first section), set home as active
+    if (!found) {
+        let homeSection = document.getElementById('home');
+        if (homeSection) homeSection.classList.add('show-animate');
+        navLinks.forEach(link => link.classList.remove('active'));
+        let homeLink = document.querySelector('header nav a[href="#home"]');
+        if (homeLink) homeLink.classList.add('active');
+    }
+
     //sticky header
     const header = document.querySelector('header');
-
     header.classList.toggle('sticky', window.scrollY > 100);
 
     // remove toggle icon and navbar when click on navlink
@@ -43,5 +53,5 @@ window.onscroll = () => {
 
     // animation footer on scroll 
     const footer = document.querySelector('footer');
-    footer.classList.toggle('show-animate', window.scrollY + window.innerHeight >= document .body.offsetHeight - 100);
+    footer.classList.toggle('show-animate', window.scrollY + window.innerHeight >= document.body.offsetHeight - 100);
 }
