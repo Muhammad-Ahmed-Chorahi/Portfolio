@@ -92,3 +92,75 @@ function typeRole() {
     }
 }
 typeRole();
+
+// Certificate Modal Popup Logic
+document.addEventListener('DOMContentLoaded', function() {
+    // Certification data
+    const certData = {
+        "cert-ethical-hacking": {
+            title: "Introduction to Ethical Hacking Principles",
+            meta: "<strong>Issued by:</strong> SkillUp EdTech on Coursera<br><strong>Date:</strong> July 21, 2025",
+            desc: "Studied the core principles of ethical hacking, exploring the mindset and categories of hackers (white-hat, black-hat, grey-hat), global cybersecurity laws, and frameworks like GDPR. Learned to conduct basic vulnerability assessments, perform reconnaissance, and understand responsible disclosure. This course laid the groundwork for practical cybersecurity skills.",
+            link: "https://coursera.org/verify/your-verification-link"
+        },
+        "cert-leeds-online": {
+            title: "Training and Learning Online",
+            meta: "<strong>Issued by:</strong> University of Leeds on Coursera<br><strong>Date:</strong> July 21, 2025",
+            desc: "Explored how to become an effective digital learner and collaborator. Gained strategies for time management, goal setting, and staying focused in remote learning environments. Strengthened digital literacy, research abilities, and communication skills for both academic and professional online platforms.",
+            link: "https://coursera.org/verify/your-leeds-verification-link"
+        },
+        "cert-meta-frontend": {
+            title: "Introduction to Front-End Development",
+            meta: "<strong>Issued by:</strong> Meta on Coursera<br><strong>Date:</strong> September 11, 2023",
+            desc: "Covered front-end fundamentals including HTML, CSS, responsive design principles, and layout techniques (Flexbox, Grid). Built modern UI designs using Bootstrap and gained a beginner-friendly introduction to JavaScript and React.js, setting a strong foundation for web development.",
+            link: "https://coursera.org/verify/your-meta-verification-link"
+        },
+        "cert-ms-ai": {
+            title: "Career Essentials in Generative AI",
+            meta: "<strong>Issued by:</strong> Microsoft & LinkedIn<br><strong>Date:</strong> August 23, 2023",
+            desc: "Completed a professional certificate designed by Microsoft and LinkedIn, consisting of six courses focused on Generative AI tools and applications. Topics included Microsoft Copilot, workflow automation, AI-enhanced productivity, responsible AI use, and ethical concerns in AI integration across workplaces. This program built job-ready skills to adapt in AI-driven environments.",
+            link: "https://coursera.org/verify/your-msai-verification-link"
+        }
+    };
+
+    const certModal = document.getElementById('cert-modal');
+    const certClose = document.querySelector('.cert-modal-close');
+    const certModalTitle = document.getElementById('cert-modal-title');
+    const certModalMeta = document.getElementById('cert-modal-meta');
+    const certModalDesc = document.getElementById('cert-modal-desc');
+    const certModalLink = document.getElementById('cert-modal-link');
+
+    // Attach event listeners to all cert cards
+    document.querySelectorAll('.cert-popup-trigger').forEach(card => {
+        card.addEventListener('click', function() {
+            const certId = card.id;
+            const data = certData[certId];
+            if (data) {
+                certModalTitle.textContent = data.title;
+                certModalMeta.innerHTML = data.meta;
+                certModalDesc.textContent = data.desc;
+                certModalLink.href = data.link;
+                certModalLink.style.display = data.link ? '' : 'none';
+                certModal.classList.add('show');
+            }
+        });
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                card.click();
+                e.preventDefault();
+            }
+        });
+    });
+
+    if (certModal && certClose) {
+        certClose.addEventListener('click', function() {
+            certModal.classList.remove('show');
+        });
+        certModal.addEventListener('click', function(e) {
+            if (e.target === certModal) certModal.classList.remove('show');
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') certModal.classList.remove('show');
+        });
+    }
+});

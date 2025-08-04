@@ -169,7 +169,7 @@
 
           <div class="education-box">
             <div class="education-content">
-              <div class="content">
+              <div class="content cert-popup-trigger" id="cert-ethical-hacking" tabindex="0" style="cursor:pointer;">
                 <div class="year">
                   <i class="bx bx-calendar-alt"></i> July 21, 2025
                 </div>
@@ -192,7 +192,7 @@
             </div>
 
             <div class="education-content">
-              <div class="content">
+              <div class="content cert-popup-trigger" id="cert-leeds-online" tabindex="0" style="cursor:pointer;">
                 <div class="year">
                   <i class="bx bx-calendar-alt"></i> July 21, 2025
                 </div>
@@ -213,7 +213,7 @@
             </div>
 
             <div class="education-content">
-              <div class="content">
+              <div class="content cert-popup-trigger" id="cert-meta-frontend" tabindex="0" style="cursor:pointer;">
                 <div class="year">
                   <i class="bx bx-calendar-alt"></i> September 11, 2023
                 </div>
@@ -233,7 +233,7 @@
             </div>
 
             <div class="education-content">
-              <div class="content">
+              <div class="content cert-popup-trigger" id="cert-ms-ai" tabindex="0" style="cursor:pointer;">
                 <div class="year">
                   <i class="bx bx-calendar-alt"></i> August 23, 2023
                 </div>
@@ -503,6 +503,25 @@
         <span class="animate scroll" style="--i:3;"></span>
       </div>
      </footer>
+
+     <!-- Certificate Modal Popup -->
+    <div id="cert-modal" class="cert-modal">
+      <div class="cert-modal-content">
+        <span class="cert-modal-close">&times;</span>
+        <!-- Modal content will be filled by JS -->
+        <h2 id="cert-modal-title"></h2>
+        <p id="cert-modal-meta"></p>
+        <p id="cert-modal-desc"></p>
+        <div style="margin-top:2rem;">
+          <a href="#" target="_blank" class="cert-verify-link" id="cert-modal-link">Verify Certificate</a>
+        </div>
+      </div>
+    </div>
+
+     <script src="./Scripts/script.js"></script>
+  </body>
+</html>
+    </div>
 
      <script src="./Scripts/script.js"></script>
   </body>

@@ -808,11 +808,87 @@ section:nth-child(odd) .animate.scroll,
     width: 0;
 }
 
+/* Certificate Modal Popup Styles */
+.cert-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(8, 27, 41, 0.85);
+    justify-content: center;
+    align-items: center;
+    animation: fadeInModal 0.4s;
+}
+
+.cert-modal.show {
+    display: flex;
+    animation: fadeInModal 0.4s;
+}
+
+.cert-modal-content {
+    background: var(--second-bg-color);
+    color: var(--text-color);
+    border-radius: 1rem;
+    padding: 3rem 3.5rem 2.5rem 3.5rem;
+    max-width: 600px;
+    width: 90vw;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.4);
+    position: relative;
+    animation: popupScale 0.4s;
+    text-align: center;
+    font-size: 1.7rem;
+    border: .2rem solid var(--main-color);
+}
+
+.cert-modal-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    font-size: 2.8rem;
+    color: var(--main-color);
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 2;
+}
+
+.cert-modal-close:hover {
+    color: #fff;
+}
+
+.cert-verify-link {
+    color: var(--main-color);
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 1.8rem;
+    transition: color 0.2s;
+    letter-spacing: 0.5px;
+}
+
+.cert-verify-link:hover {
+    color: #fff;
+}
+
+/* Modal Animations */
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes popupScale {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
 /* breakpoints */
 
 @media (max-width:1200px) {
     html {
         font-size: 55%;
+    }
+    .cert-modal-content {
+        max-width: 90vw;
+        padding: 2.5rem 2rem 2rem 2rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -831,6 +907,12 @@ section:nth-child(odd) .animate.scroll,
 
     .footer {
         padding: 2rem 4%;
+    }
+
+    .cert-modal-content {
+        max-width: 98vw;
+        padding: 2rem 1rem 1.5rem 1rem;
+        font-size: 1.4rem;
     }
 }
 
@@ -899,19 +981,20 @@ section:nth-child(odd) .animate.scroll,
     html {
         font-size: 50%;
     }
-
     .home-content h1 {
         display: flex;
         flex-direction: column;
     }
-
     .home-sci {
         width: 160px;
     }
-
     .home-sci a {
         width: 38px;
         height: 38px;
+    }
+    .cert-modal-content {
+        padding: 1rem 0.2rem 1rem 0.2rem;
+        font-size: 1.4rem; /* increased from 1.1rem */
     }
 }
 
@@ -919,22 +1002,22 @@ section:nth-child(odd) .animate.scroll,
     .home-content h1 {
         font-size: 4.2rem;
     }
-
     .education {
         padding: 10rem 4% 5rem 5%;
     }
-
     .contact form .input-box .input-field {
         width: 100%;
     }
-
     .footer {
         flex-direction: column-reverse;
     }
-
     .footer p {
         margin-top: 2rem;
         text-align: center;
+    }
+    .cert-modal-content {
+        padding: 0.5rem 0.1rem 0.8rem 0.1rem;
+        font-size: 1.2rem; /* increased from 1rem */
     }
 }
 
@@ -942,17 +1025,18 @@ section:nth-child(odd) .animate.scroll,
     .home {
         justify-content: center;
     }
-
     .home-content {
         display: flex;
         align-items: center;
         flex-direction: column;
         text-align: center;
     }
-
     .home-content h1 {
         font-size: 3.8rem;
-
+    }
+    .cert-modal-content {
+        padding: 0.2rem 0.05rem 0.5rem 0.05rem;
+        font-size: 1.1rem; /* increased from 0.9rem */
     }
 }
 
