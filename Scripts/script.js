@@ -55,3 +55,40 @@ window.onscroll = () => {
     const footer = document.querySelector('footer');
     footer.classList.toggle('show-animate', window.scrollY + window.innerHeight >= document.body.offsetHeight - 100);
 }
+
+// Animated typing effect for roles in home section
+const roles = [
+    "Web Developer",
+    "Software Engineer",
+    "Tech Enthusiast"
+];
+const roleElement = document.getElementById('animated-role');
+let roleIndex = 0;
+let charIndex = 0;
+let typing = true;
+
+function typeRole() {
+    if (!roleElement) return;
+    const currentRole = roles[roleIndex];
+    if (typing) {
+        if (charIndex < currentRole.length) {
+            roleElement.textContent += currentRole.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeRole, 80);
+        } else {
+            typing = false;
+            setTimeout(typeRole, 1200);
+        }
+    } else {
+        if (charIndex > 0) {
+            roleElement.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(typeRole, 40);
+        } else {
+            typing = true;
+            roleIndex = (roleIndex + 1) % roles.length;
+            setTimeout(typeRole, 400);
+        }
+    }
+}
+typeRole();

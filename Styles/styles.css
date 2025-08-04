@@ -126,25 +126,7 @@ section {
 }
 
 .home.show-animate .home-content .text-animate h3{
-    animation: homeBgText 6s linear infinite;
-    animation-delay: 2s;
-}
-
-.home-content .text-animate h3::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    border-right: 2px solid var(--main-color);
-    z-index: -1;
-}
-
-.home.home.show-animate .home-content .text-animate h3::before{
-    animation: homeCursorText 6s linear infinite;
-    animation-delay: 2s;
-
+    animation: none;
 }
 
 .home-content p { 
@@ -1022,4 +1004,23 @@ section:nth-child(odd) .animate.scroll,
         width: 0;
 
     }
+}
+
+@keyframes blink-cursor {
+    0%, 100% { border-color: var(--main-color); }
+    50% { border-color: transparent; }
+}
+
+#animated-role {
+    border-right: 2px solid var(--main-color);
+    padding-right: 4px;
+    white-space: nowrap;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: .7px var(--main-color);
+    background-image: linear-gradient(var(--main-color), var(--main-color));
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    animation: blink-cursor 0.8s steps(1) infinite;
 }
