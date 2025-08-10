@@ -11,12 +11,26 @@
     font-family: poppins, sans-serif;
 }
 
-:root {
-    --bg-color: #081b29;
-    --second-bg-color: #112e42;
-    --text-color: #ededed;
-    --main-color: #00abf0;
+
+/* Dark Theme */
+.dark-theme {
+    --bg-color: #0d1b1e;
+    --second-bg-color: #1b2d2f;
+    --text-color: #f0f0f0;
+    --main-color: #00c896;
+    --accent-color: #057dcd;
 }
+
+/* Light Theme */
+:root {
+    --bg-color: #e8eef1;
+    --second-bg-color: #ffffff;
+    --text-color: #1e3d58;
+    --main-color: #43b0f1;
+    --accent-color: #057dcd;
+}
+
+
 
 html {
     font-size: 62.5%;
@@ -1145,4 +1159,56 @@ section:nth-child(odd) .animate.scroll,
     background-repeat: no-repeat;
     -webkit-background-clip: text;
     animation: blink-cursor 0.8s steps(1) infinite;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    font-size: 1.7rem;
+    font-family: inherit;
+    font-weight: 500;
+    margin-left: 3.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    transition: color .3s;
+}
+
+.theme-toggle-btn:hover,
+.theme-toggle-btn.active {
+    color: var(--main-color);
+}
+
+.theme-toggle-btn i {
+    font-size: 2rem;
+    margin-right: 0.7rem;
+    transition: color .3s;
+}
+
+.theme-toggle-label {
+    font-size: 1.7rem;
+    font-weight: 500;
+    letter-spacing: .1rem;
+}
+
+@media (max-width:768px) {
+    .theme-toggle-btn {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        width: 100%;
+        text-align: left;
+        background: none;
+        color: var(--text-color);
+    }
+    .theme-toggle-btn i {
+        font-size: 2.2rem;
+        margin-right: 0.7rem;
+    }
+    .theme-toggle-label {
+        font-size: 2rem;
+    }
 }
