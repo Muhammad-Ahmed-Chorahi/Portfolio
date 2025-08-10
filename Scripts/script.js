@@ -58,9 +58,9 @@ window.onscroll = () => {
 
 // Animated typing effect for roles in home section
 const roles = [
-    "Web Developer",
     "Software Engineer",
-    "Tech Enthusiast"
+    "Full-Stack Developer",
+    "Cybersecurity Enthusiast"
 ];
 const roleElement = document.getElementById('animated-role');
 let roleIndex = 0;
