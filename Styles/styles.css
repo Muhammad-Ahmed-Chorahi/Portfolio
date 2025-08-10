@@ -129,6 +129,12 @@ section {
     animation: none;
 }
 
+.home-content .tag-line{
+    position: relative;
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
 .home-content p { 
     position: relative;
     font-size: 1.6rem;

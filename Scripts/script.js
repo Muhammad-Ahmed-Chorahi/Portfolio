@@ -58,9 +58,9 @@ window.onscroll = () => {
 
 // Animated typing effect for roles in home section
 const roles = [
+    "Web Developer",
     "Software Engineer",
-    "Full-Stack Developer",
-    "Cybersecurity Enthusiast"
+    "Tech Enthusiast"
 ];
 const roleElement = document.getElementById('animated-role');
 let roleIndex = 0;
@@ -101,25 +101,25 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Introduction to Ethical Hacking Principles",
             meta: "<strong>Issued by:</strong> SkillUp EdTech on Coursera<br><strong>Date:</strong> July 21, 2025",
             desc: "Studied the core principles of ethical hacking, exploring the mindset and categories of hackers (white-hat, black-hat, grey-hat), global cybersecurity laws, and frameworks like GDPR. Learned to conduct basic vulnerability assessments, perform reconnaissance, and understand responsible disclosure. This course laid the groundwork for practical cybersecurity skills.",
-            link: "https://coursera.org/verify/VF3ZN3W7MT0P"
+            link: "https://coursera.org/verify/your-verification-link"
         },
         "cert-leeds-online": {
             title: "Training and Learning Online",
             meta: "<strong>Issued by:</strong> University of Leeds on Coursera<br><strong>Date:</strong> July 21, 2025",
             desc: "Explored how to become an effective digital learner and collaborator. Gained strategies for time management, goal setting, and staying focused in remote learning environments. Strengthened digital literacy, research abilities, and communication skills for both academic and professional online platforms.",
-            link: "https://coursera.org/verify/OOWME9VJ9CEP"
+            link: "https://coursera.org/verify/your-leeds-verification-link"
         },
         "cert-meta-frontend": {
             title: "Introduction to Front-End Development",
             meta: "<strong>Issued by:</strong> Meta on Coursera<br><strong>Date:</strong> September 11, 2023",
             desc: "Covered front-end fundamentals including HTML, CSS, responsive design principles, and layout techniques (Flexbox, Grid). Built modern UI designs using Bootstrap and gained a beginner-friendly introduction to JavaScript and React.js, setting a strong foundation for web development.",
-            link: "https://coursera.org/verify/D3Z5T6QVN7KU"
+            link: "https://coursera.org/verify/your-meta-verification-link"
         },
         "cert-ms-ai": {
             title: "Career Essentials in Generative AI",
             meta: "<strong>Issued by:</strong> Microsoft & LinkedIn<br><strong>Date:</strong> August 23, 2023",
             desc: "Completed a professional certificate designed by Microsoft and LinkedIn, consisting of six courses focused on Generative AI tools and applications. Topics included Microsoft Copilot, workflow automation, AI-enhanced productivity, responsible AI use, and ethical concerns in AI integration across workplaces. This program built job-ready skills to adapt in AI-driven environments.",
-            link: "https://www.linkedin.com/learning/certificates/fc6d14d58f0cacd3e96b5f0ac8a573d7051114830ce7a363a2f5012580a5ba10"
+            link: "https://coursera.org/verify/your-msai-verification-link"
         }
     };
 
@@ -177,12 +177,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
-
-      // Set the hidden time field to the current date/time
-      const timeInput = document.getElementById("form-time");
-      if (timeInput) {
-        timeInput.value = new Date().toLocaleString();
-      }
 
       emailjs.sendForm("service_wcpga85", "template_ogyfvpw", this)
         .then(function () {
