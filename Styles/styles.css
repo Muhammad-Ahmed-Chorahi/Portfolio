@@ -199,9 +199,10 @@ section {
 .home-sci {
     position: absolute;
     bottom: 4rem;
-    width: 170px;
+    width: 220px; /* increased from 170px to fit 4 icons */
     display: flex;
     justify-content: space-between;
+    gap: 10px; /* add gap for better spacing */
 }
 
 .home-sci a {
@@ -239,6 +240,37 @@ section {
 
 .home-sci a:hover::before {
     width: 100%;
+}
+
+/* LeetCode icon color */
+.bxl-leetcode {
+    color: #FFA116 !important; /* LeetCode orange */
+    /* Optionally, you can use filter for SVG if needed */
+}
+
+/* Responsive: more icons, smaller width */
+@media (max-width:520px) {
+    .home-sci {
+        width: 200px; /* adjust for 4 icons */
+        gap: 6px;
+    }
+    .home-sci a {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width:400px) {
+    .home-sci {
+        width: 170px;
+        gap: 4px;
+    }
+    .home-sci a {
+        width: 32px;
+        height: 32px;
+        font-size: 15px;
+    }
 }
 
 .about {
